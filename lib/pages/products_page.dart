@@ -26,14 +26,27 @@ class ProductsPage extends StatelessWidget {
                 shrinkWrap: true,
                 physics: const BouncingScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
+                  crossAxisCount: 2,
+                  mainAxisExtent: 220,
+                ),
                 itemCount: 10,
                 itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.all(2.5),
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    color: AppColors.card,
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    alignment: AlignmentDirectional.bottomCenter,
+                    children: const [
+                      Positioned(
+                        // top: 20,
+                        height: 200,
+                        width: 200,
+                        child: ProductCard(),
+                      ),
+                      Positioned(
+                        bottom: -10,
+                        child: AddToCartButton(),
+                      ),
+                    ],
                   ),
                 ),
               ),
