@@ -1,4 +1,5 @@
 import 'package:eshop/utils/utils.dart';
+import 'package:eshop/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class ProductsPage extends StatelessWidget {
@@ -18,24 +19,7 @@ class ProductsPage extends StatelessWidget {
         child: Column(
           children: [
             // Search bar.
-            TextField(
-              decoration: InputDecoration(
-                  filled: true,
-                  fillColor: AppColors.card,
-                  hintText: 'Search here...',
-                  suffixIcon: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.search_outlined,
-                        color: AppColors.searchIcon,
-                      )),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: AppColors.card,
-                    ),
-                    borderRadius: BorderRadius.circular(20),
-                  )),
-            ),
+            const SearchBar(),
             const SizedBox(height: sizedBoxHeight),
             Expanded(
               child: GridView.builder(
