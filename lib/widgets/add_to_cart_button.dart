@@ -17,7 +17,6 @@ class AddToCartButton extends StatelessWidget {
               const Color(0xFF6210E1).withOpacity(.75),
               const Color(0xFF1400AE),
             ]),
-        color: Colors.amber,
         shape: BoxShape.circle,
       ),
       child: const Icon(
