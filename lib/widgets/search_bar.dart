@@ -1,3 +1,4 @@
+import 'package:eshop/utils/app_colorization.dart';
 import 'package:flutter/material.dart';
 
 class SearchBar extends StatelessWidget {
@@ -8,7 +9,7 @@ class SearchBar extends StatelessWidget {
     const border = OutlineInputBorder(
       borderSide: BorderSide(
         width: 0,
-        color: Colors.white,
+        color: AppColors.searchBarColor,
       ),
       borderRadius: BorderRadius.all(
         Radius.circular(25),
@@ -18,12 +19,12 @@ class SearchBar extends StatelessWidget {
       decoration: InputDecoration(
         hintText: 'Search Here...',
         filled: true,
-        fillColor: Colors.white,
+        fillColor: AppColors.searchBarColor,
         suffixIcon: IconButton(
           onPressed: () {},
           icon: const Icon(
             Icons.search_outlined,
-            color: Color.fromARGB(255, 107, 107, 107),
+            color: AppColors.searchIconColor,
             size: 24,
           ),
         ),
