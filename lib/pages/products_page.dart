@@ -8,6 +8,8 @@ class ProductsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const double sizedBoxHeight = 30;
+    final shotestSide = MediaQuery.of(context).size.shortestSide;
+
     return Scaffold(
       backgroundColor: AppColors.scaffoldBackground,
       appBar: AppBar(
@@ -15,7 +17,7 @@ class ProductsPage extends StatelessWidget {
         shadowColor: AppColors.transparent,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.only(left: 8, right: 8),
         child: Column(
           children: [
             // Search bar.
@@ -23,26 +25,29 @@ class ProductsPage extends StatelessWidget {
             const SizedBox(height: sizedBoxHeight),
             Expanded(
               child: GridView.builder(
+                padding: const EdgeInsets.only(bottom: 25),
                 shrinkWrap: true,
                 physics: const BouncingScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  mainAxisExtent: 220,
+                  // mainAxisExtent: 220,
+                  childAspectRatio: .63,
                 ),
                 itemCount: 10,
                 itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.all(2.5),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
                   child: Stack(
                     clipBehavior: Clip.none,
                     alignment: AlignmentDirectional.bottomCenter,
-                    children: const [
+                    children: [
                       Positioned(
                         // top: 20,
-                        height: 200,
+                        height: shotestSide * .715,
                         width: 200,
-                        child: ProductCard(),
+                        child: const ProductCard(),
                       ),
-                      Positioned(
+                      const Positioned(
                         bottom: -10,
                         child: QuantityButtonBar(),
                       ),
