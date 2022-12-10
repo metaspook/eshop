@@ -1,4 +1,6 @@
 import 'package:eshop/utils/app_colorization.dart';
+import 'package:eshop/widgets/product_card.dart';
+import 'package:eshop/widgets/quantity_btn.dart';
 import 'package:eshop/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -26,10 +28,23 @@ class HomePage extends StatelessWidget {
                 physics: const BouncingScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
+                  mainAxisExtent: 200,
                 ),
-                itemBuilder: (context, index) => const Card(
-                  color: Colors.amber,
-                  
+                itemCount: 9,
+                itemBuilder: (context, index) => Stack(
+                  clipBehavior: Clip.none,
+                  alignment: AlignmentDirectional.bottomCenter,
+                  children: const [
+                    Positioned(
+                      height: 180,
+                      width: 180,
+                      child: ProductCard(),
+                    ),
+                    Positioned(
+                      bottom: -10,
+                      child: QuantityButton(),
+                    ),
+                  ],
                 ),
               ),
             ),

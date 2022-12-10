@@ -9,7 +9,7 @@ class SearchBar extends StatelessWidget {
     const border = OutlineInputBorder(
       borderSide: BorderSide(
         width: 0,
-        color: AppColors.searchBarColor,
+        color: AppColors.secondaryColor,
       ),
       borderRadius: BorderRadius.all(
         Radius.circular(25),
@@ -19,7 +19,7 @@ class SearchBar extends StatelessWidget {
       decoration: InputDecoration(
         hintText: 'Search Here...',
         filled: true,
-        fillColor: AppColors.searchBarColor,
+        fillColor: AppColors.secondaryColor,
         suffixIcon: IconButton(
           onPressed: () {},
           icon: const Icon(
