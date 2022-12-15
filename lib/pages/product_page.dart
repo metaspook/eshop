@@ -1,7 +1,5 @@
-import 'package:eshop/utils/app_colorization.dart';
-import 'package:eshop/widgets/product_card.dart';
-import 'package:eshop/widgets/quantity_btn.dart';
-import 'package:eshop/widgets/search_bar.dart';
+import 'package:eshop/utils/utils.dart';
+import 'package:eshop/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,7 +10,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.primaryBackground,
       appBar: AppBar(
-        backgroundColor: AppColors.primaryBackground,
+        backgroundColor: AppColors.transparent,
         elevation: 0,
       ),
       body: Padding(
@@ -25,10 +23,11 @@ class HomePage extends StatelessWidget {
             ),
             Expanded(
               child: GridView.builder(
+                padding: const EdgeInsets.only(bottom: 10),
                 physics: const BouncingScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  mainAxisExtent: 200,
+                  mainAxisExtent: 320,
                 ),
                 itemCount: 9,
                 itemBuilder: (context, index) => Stack(
@@ -36,13 +35,13 @@ class HomePage extends StatelessWidget {
                   alignment: AlignmentDirectional.bottomCenter,
                   children: const [
                     Positioned(
-                      height: 180,
+                      height: 290,
                       width: 180,
                       child: ProductCard(),
                     ),
                     Positioned(
                       bottom: -10,
-                      child: QuantityButton(),
+                      child: QuantityButtonBar(),
                     ),
                   ],
                 ),
