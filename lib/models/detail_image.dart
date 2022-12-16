@@ -11,9 +11,14 @@ class DetailImage {
   final int product;
 
   factory DetailImage.fromJson(Map<String, dynamic> json) => DetailImage(
-        id: json['id'] as int,
-        image: json['image'] as String,
-        isPrimary: json['isPrimary'] as bool,
-        product: json['product'] as int,
+        id: json['id'] ?? 0,
+        image: json['image'] ?? '',
+        isPrimary: json['isPrimary'] ?? false,
+        product: json['product'] ?? 0,
       );
+
+  @override
+  String toString() {
+    return 'DetailImage(id: $id, image: $image, isPrimary: $isPrimary, product: $product)';
+  }
 }

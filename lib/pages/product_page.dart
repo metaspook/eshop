@@ -1,4 +1,5 @@
 import 'package:eshop/models/product.dart';
+import 'package:eshop/repositories/products_repo.dart';
 import 'package:eshop/utils/utils.dart';
 import 'package:eshop/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ProductsRepo().getProducts().then(
+      (value) {
+        debugPrint(value.toString());
+      },
+    );
+
     return Scaffold(
       backgroundColor: AppColors.primaryBackground,
       appBar: AppBar(
@@ -33,9 +40,9 @@ class HomePage extends StatelessWidget {
                 itemCount: 9,
                 itemBuilder: (context, index) {
                   const product = Product(
-                    id: "1",
-                    brandName: "",
-                    queryString: "queryString",
+                    id: 1,
+                    brandName: "brandName",
+                    //queryString: "queryString",
                     image:
                         "https://d1ojphegpburrh.cloudfront.net/media/images/product/None/1380/Add_a_heading_1.png",
                     currentCharge: 20.00,

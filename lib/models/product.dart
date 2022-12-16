@@ -5,7 +5,7 @@ class Product extends Equatable {
   const Product({
     required this.id,
     required this.brandName,
-    required this.queryString,
+    //required this.queryString,
     required this.image,
     required this.currentCharge,
     required this.discountCharge,
@@ -18,14 +18,14 @@ class Product extends Equatable {
     required this.stock,
     required this.seller,
   });
-  final String id;
+  final int id;
   final String brandName;
-  final String queryString;
+  //final String queryString;
   final String image;
   final num currentCharge;
   final num discountCharge;
-  final num? sellingPrice;
-  final num? profit;
+  final num sellingPrice;
+  final num profit;
   final List<DetailImage> images;
   final String productName;
   final String description;
@@ -34,20 +34,23 @@ class Product extends Equatable {
   final String seller;
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
-        id: json['id'] as String,
-        brandName: json['brandName'] as String,
-        queryString: json['queryString'] as String,
-        image: json['image'] as String,
-        currentCharge: json['currentCharge'] as num,
-        discountCharge: json['discountCharge'] as num,
-        sellingPrice: json['sellingPrice'] as num,
-        profit: json['profit'] as num,
-        images: json['images'] as List<DetailImage>,
-        productName: json['productName'] as String,
-        description: json['description'] as String,
-        maximumOrder: json['maximumOrder'] as int,
-        stock: json['stock'] as int,
-        seller: json['seller'] as String,
+        id: json['id'] ?? 0,
+        brandName: json['brandName'] ?? '',
+        //queryString: json['queryString'] as String,
+        image: json['image'] ?? '',
+        currentCharge: json['currentCharge'] ?? 0,
+        discountCharge: json['discountCharge'] ?? 0,
+        sellingPrice: json['sellingPrice'] ?? 0,
+        profit: json['profit'] ?? 0,
+        images: [
+          for (final imageJson in json['images'])
+            DetailImage.fromJson(imageJson),
+        ],
+        productName: json['productName'] ?? '',
+        description: json['description'] ?? '',
+        maximumOrder: json['maximumOrder'] ?? 0,
+        stock: json['stock'] ?? 0,
+        seller: json['seller'] ?? '',
       );
 
   @override
@@ -55,7 +58,7 @@ class Product extends Equatable {
     return [
       id,
       brandName,
-      queryString,
+      // queryString,
       image,
       currentCharge,
       discountCharge,

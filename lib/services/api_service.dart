@@ -9,7 +9,7 @@ class ApiService {
   };
 
   Future<StreamedResponse?> fetchProducts() async {
-    final url = Uri.parse(AppConfig.baseUrl);
+    final url = Uri.parse(AppConfig.productsPath);
     final request = Request('GET', url);
     request.headers.addAll(headers);
 
