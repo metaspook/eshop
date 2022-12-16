@@ -27,9 +27,10 @@ class ProductCard extends StatelessWidget {
             const Text(
               "নুরজাহান সুপার ফাইন চাল - ৫০ কেজি",
               style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                  color: AppColors.secondaryText),
+                fontWeight: FontWeight.w500,
+                fontSize: 14,
+                color: AppColors.secondaryText,
+              ),
             ),
             const SizedBox(
               height: 10,
@@ -39,8 +40,10 @@ class ProductCard extends StatelessWidget {
               children: const [
                 Text(
                   'ক্রয়:',
-                  style:
-                      TextStyle(fontSize: 10, color: AppColors.secondaryText1),
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: AppColors.secondaryText1,
+                  ),
                 ),
                 SizedBox(
                   width: 5,
@@ -75,8 +78,10 @@ class ProductCard extends StatelessWidget {
               children: const [
                 Text(
                   'বিক্রয়:',
-                  style:
-                      TextStyle(fontSize: 10, color: AppColors.secondaryText1),
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: AppColors.secondaryText1,
+                  ),
                 ),
                 SizedBox(
                   width: 5,
@@ -94,8 +99,10 @@ class ProductCard extends StatelessWidget {
                 ),
                 Text(
                   'লাভ:',
-                  style:
-                      TextStyle(fontSize: 10, color: AppColors.secondaryText1),
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: AppColors.secondaryText1,
+                  ),
                 ),
                 SizedBox(
                   width: 5,
