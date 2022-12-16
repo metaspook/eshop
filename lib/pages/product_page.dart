@@ -1,4 +1,5 @@
 import 'package:eshop/utils/utils.dart';
+import 'package:eshop/widgets/stock_out_badge.dart';
 import 'package:eshop/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -38,6 +39,11 @@ class HomePage extends StatelessWidget {
                       height: 290,
                       width: 180,
                       child: ProductCard(),
+                    ),
+                    Positioned(
+                      right: 20,
+                      top: 45,
+                      child: StockOutBadge(),
                     ),
                     Positioned(
                       bottom: -10,
