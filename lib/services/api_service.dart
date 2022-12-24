@@ -4,7 +4,7 @@ import '../utils/app_configs.dart';
 
 class ApiService {
   // Configs
-  final timeLimit = const Duration(seconds: 2);
+  // final timeLimit = const Duration(seconds: 2);
   final headers = const <String, String>{
     'Content-Type': 'application/json; charset=UTF-8',
   };
@@ -21,7 +21,7 @@ class ApiService {
       }
     } catch (_) {}
 
-    print("[FAIL!] Couldn't fetch the products.");
+    print("products could not get.");
     return null;
   }
 }

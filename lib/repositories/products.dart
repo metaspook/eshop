@@ -7,7 +7,7 @@ import '../models/products.dart';
 class ProductsRepo {
   final _apiService = ApiService();
 
-  List<Product> parseProducts(String? responseBody) {
+  List<Product> _parseProducts(String? responseBody) {
     if (responseBody != null) {
       final json = jsonDecode(responseBody) as Map<String, dynamic>;
       final productsJson = json["data"]["products"]["results"];
@@ -23,6 +23,6 @@ class ProductsRepo {
   Future<List<Product>> getProducts() async {
     final response = await _apiService.fetchProducts();
     final responseBody = await response?.stream.bytesToString();
-    return parseProducts(responseBody);
+    return _parseProducts(responseBody);
   }
 }

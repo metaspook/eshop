@@ -8,7 +8,7 @@ class StockOut extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: ShapeDecoration(
-        color: AppColors.scaffoldBackground,
+        color: AppColors.quantityColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),
         ),

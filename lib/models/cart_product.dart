@@ -1,0 +1,54 @@
+import 'package:eshop/models/products.dart';
+
+class CartProduct {
+  final int productId;
+  final String productImage;
+  final String productName;
+  final int quantity;
+  final int maxOrderQuantity;
+  final num unitPrice;
+  final num subTotal;
+
+  CartProduct({
+    required this.productId,
+    required this.productImage,
+    required this.productName,
+    required this.quantity,
+    required this.maxOrderQuantity,
+    required this.unitPrice,
+    required this.subTotal,
+  });
+
+  factory CartProduct.fromProduct(
+      {required Product product, required int quantity}) {
+    return CartProduct(
+      productId: product.id,
+      productImage: product.image,
+      productName: product.productName,
+      quantity: quantity,
+      maxOrderQuantity: product.maximumOrder,
+      unitPrice: product.currentCharge,
+      subTotal: product.currentCharge * quantity,
+    );
+  }
+
+  CartProduct copyWith({
+    int? productId,
+    String? productImage,
+    String? productName,
+    int? quantity,
+    int? maxOrderQuantity,
+    num? unitPrice,
+    num? subTotal,
+  }) {
+    return CartProduct(
+      productId: productId ?? this.productId,
+      productImage: productImage ?? this.productImage,
+      productName: productName ?? this.productName,
+      quantity: quantity ?? this.quantity,
+      maxOrderQuantity: maxOrderQuantity ?? this.maxOrderQuantity,
+      unitPrice: unitPrice ?? this.unitPrice,
+      subTotal: subTotal ?? this.subTotal,
+    );
+  }
+}

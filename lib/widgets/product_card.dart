@@ -1,46 +1,124 @@
 import 'package:eshop/utils/utils.dart';
 import 'package:flutter/material.dart';
 
+import '../models/products.dart';
+
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key});
+  const ProductCard({super.key, required this.product});
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
-    final shotestSide = MediaQuery.of(context).size.shortestSide;
-    const double sizedBoxHeight = 20;
-    final themeData = Theme.of(context);
     return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       color: AppColors.card,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(5.0),
         child: Column(
           children: [
-            LimitedBox(
-              maxHeight: shotestSide * .3,
-              maxWidth: shotestSide * .3,
-              child: Image.network(
-                'https://d1ojphegpburrh.cloudfront.net/media/images/product/None/1383/%E0%A6%B8%E0%A6%9C_4.png',
-                // fit: BoxFit.fill,
-              ),
+            Image.network(
+              product.image,
+              width: 148,
+              height: 148,
+            ),
+            const SizedBox(
+              height: 5,
             ),
             Text(
-              'Lays Classic Family Chips',
-              style: themeData.textTheme.headline6,
+              product.productName,
+              style: const TextStyle(
+                fontWeight: FontWeight.w200,
+                fontSize: 14,
+                color: Color.fromARGB(255, 8, 7, 8),
+              ),
             ),
-            const SizedBox(height: sizedBoxHeight),
+            const SizedBox(
+              height: 10,
+            ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text('   ক্রয়: ৳ 20.00'),
-                Text('৳ 22.00'),
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const Text(
+                  'ক্রয়:',
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: AppColors.textSecondary1,
+                  ),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                //current Price
+                Text(
+                  '৳ ${product.currentCharge}',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: AppColors.textPrimary,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                const SizedBox(
+                  width: 25,
+                ),
+                Text(
+                  '৳ ${product.discountCharge}',
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: AppColors.textPrimary,
+                    fontWeight: FontWeight.w500,
+                    decoration: TextDecoration.lineThrough,
+                  ),
+                ),
               ],
             ),
+            const SizedBox(
+              height: 5,
+            ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text('বিক্রয়: ৳ 25.00'),
-                Text('লাভ: ৳ 25.00'),
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const Text(
+                  'বিক্রয়:',
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: AppColors.textSecondary1,
+                  ),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  '৳ ${product.sellingPrice}',
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: AppColors.textSecondary1,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                const Text(
+                  'লাভ:',
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: AppColors.textSecondary1,
+                  ),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  '৳ ${product.profit}',
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: AppColors.textSecondary1,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ],
             ),
           ],

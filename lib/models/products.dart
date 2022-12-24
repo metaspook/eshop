@@ -34,20 +34,20 @@ class Product extends Equatable {
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json['id'] ?? 0,
-        brandName: json['brandName'] ?? '',
-        //queryString: json['queryString'] as String,
+        brandName: json['brand']['name'],
+        // queryString: json['brand']['slug'],
         image: json['image'] ?? '',
-        currentCharge: json['currentCharge'] ?? 0,
-        discountCharge: json['discountCharge'] ?? 0,
-        sellingPrice: json['sellingPrice'] ?? 0,
-        profit: json['profit'] ?? 0,
+        currentCharge: json['charge']['current_charge'],
+        discountCharge: json['charge']['discount_charge'] ?? 0,
+        sellingPrice: json['charge']['selling_price'],
+        profit: json['charge']['profit'] ?? 0,
         images: [
           for (final imageJson in json['images'])
             DetailImage.fromJson(imageJson),
         ],
-        productName: json['productName'] ?? '',
+        productName: json['product_name'] ?? '',
         description: json['description'] ?? '',
-        maximumOrder: json['maximumOrder'] ?? 0,
+        maximumOrder: json['maximum_order'] ?? 0,
         stock: json['stock'] ?? 0,
         seller: json['seller'] ?? '',
       );

@@ -9,4 +9,11 @@ class AppColors {
   static const textPrimary = Color(0xFFDA2079);
   static const textSecondary1 = Color(0xFF19181B);
   static const textSecondary2 = Color(0xFF646464);
+  static const quantityColor = Color(0xFFFFBFDD);
 }
+//  final productPageCubit = context.read<ProductPageCubit>();
+//     productPageCubit.loadProducts();
+
+//     BlocBuilder<ProductPageCubit, ProductPageState>(
+//               builder: (context, state) {
+//                 if (!state.isLoading) {

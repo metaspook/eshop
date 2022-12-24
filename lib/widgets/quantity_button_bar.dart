@@ -2,8 +2,14 @@ import 'package:eshop/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class QuantityButtonBar extends StatelessWidget {
-  const QuantityButtonBar({super.key});
-
+  const QuantityButtonBar(
+      {super.key,
+      required this.quantity,
+      this.onTapIncrement,
+      this.onTapDecrement});
+  final int quantity;
+  final GestureTapCallback? onTapIncrement;
+  final GestureTapCallback? onTapDecrement;
   @override
   Widget build(BuildContext context) {
     final shotestSide = MediaQuery.of(context).size.shortestSide;
@@ -18,9 +24,7 @@ class QuantityButtonBar extends StatelessWidget {
         children: [
           // Decrement button.
           GestureDetector(
-            onTap: () {
-              print('Decrement');
-            },
+            onTap: onTapDecrement,
             child: Container(
               height: shotestSide * .0925,
               width: shotestSide * .0925,
@@ -35,15 +39,13 @@ class QuantityButtonBar extends StatelessWidget {
             ),
           ),
           Text(
-            '5 পিস',
+            '$quantity পিস',
             style: TextStyle(
                 fontSize: shotestSide * .04, color: AppColors.textPrimary),
           ),
           // Increment button.
           GestureDetector(
-            onTap: () {
-              print('Increment');
-            },
+            onTap: onTapIncrement,
             child: Container(
               height: shotestSide * .0925,
               width: shotestSide * .0925,
