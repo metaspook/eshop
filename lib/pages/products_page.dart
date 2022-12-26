@@ -20,14 +20,17 @@ class ProductsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.scaffoldBackground,
       appBar: AppBar(
-        backgroundColor: AppColors.transparent,
-        shadowColor: AppColors.transparent,
+        backgroundColor: AppColors.scaffoldBackground,
+        shadowColor: AppColors.scaffoldBackground,
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 8, right: 8),
         child: Column(
           children: [
             // Search bar.
+            const SizedBox(
+              height: 30,
+            ),
             const SearchBar(),
             const SizedBox(height: sizedBoxHeight),
             BlocBuilder<ProductPageCubit, ProductPageState>(
